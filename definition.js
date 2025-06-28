@@ -51,11 +51,11 @@ Blockly.Blocks['get_camera_data'] = {
           type: "field_dropdown",
           name: "FIELD",
           options: [
-            ["label", 0],
-            ["x", 1],
-            ["y", 2],
-            ["h", 3],
-            ["w", 4]
+            ["label", "0"],
+            ["x", "1"],
+            ["y", "2"],
+            ["h", "3"],
+            ["w", "4"]
           ]
         }
       ],
@@ -69,7 +69,8 @@ Blockly.Blocks['get_camera_data'] = {
 
 Blockly.Python['get_camera_data'] = function(block) {
   const field = block.getFieldValue('FIELD');
-  return [`cam.get_data("${field}")`, Blockly.Python.ORDER_ATOMIC];
+  var code = 'cam.get_data(' + parseInt(field) +')'
+  return [code, Blockly.Python.ORDER_ATOMIC];
 };
 
 
