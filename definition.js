@@ -30,10 +30,11 @@ Blockly.Blocks['init_camera_uart'] = {
 };
 
 Blockly.Python['init_camera_uart'] = function(block) {
+  Blockly.Python.definitions_['import_riscv_camera'] = 'from camera_riscv import *';
   const baudrate = block.getFieldValue('BAUDRATE');
   const tx = block.getFieldValue('TX');
   const rx = block.getFieldValue('RX');
-  return `cam = CameraUART(baudrate=${baudrate}, tx=${tx}, rx=${rx})\n`;
+  return `cam = CameraUART(baudrate=${baudrate}, tx=${tx}_PIN, rx=${rx}_PIN)\n`;
 };
 
 
@@ -47,11 +48,11 @@ Blockly.Blocks['get_camera_data'] = {
           type: "field_dropdown",
           name: "FIELD",
           options: [
-            ["label", "label"],
-            ["x", "x"],
-            ["y", "y"],
-            ["w", "w"],
-            ["h", "h"]
+            ["label", "0"],
+            ["x", "1"],
+            ["y", "2"],
+            ["w", "3"],
+            ["h", "4"]
           ]
         }
       ],
