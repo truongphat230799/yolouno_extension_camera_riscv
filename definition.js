@@ -48,11 +48,11 @@ Blockly.Blocks['get_camera_data'] = {
           type: "field_dropdown",
           name: "FIELD",
           options: [
-            ["label", "0"],
-            ["x", "1"],
-            ["y", "2"],
-            ["w", "3"],
-            ["h", "4"]
+            ["label", 0],
+            ["x", 1],
+            ["y", 2],
+            ["h", 3],
+            ["w", 4]
           ]
         }
       ],
