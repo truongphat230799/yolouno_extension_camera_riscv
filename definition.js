@@ -30,11 +30,14 @@ Blockly.Blocks['init_camera_uart'] = {
 };
 
 Blockly.Python['init_camera_uart'] = function(block) {
+  
+  var baudrate = block.getFieldValue('BAUDRATE');
+  var tx = block.getFieldValue('TX');
+  var rx = block.getFieldValue('RX');
   Blockly.Python.definitions_['import_riscv_camera'] = 'from camera_riscv import *';
-  const baudrate = block.getFieldValue('BAUDRATE');
-  const tx = block.getFieldValue('TX');
-  const rx = block.getFieldValue('RX');
-  return `cam = CameraUART(baudrate=${baudrate}, tx=${tx}_PIN, rx=${rx}_PIN)\n`;
+  Blockly.Python.definitions_['create_riscv_camera'] = 'cam = CameraUART(baudrate=' + baudrate+', tx='+tx+'_PIN, rx='+rx+'_PIN)\n'
+  var code =''
+  return code;
 };
 
 
